@@ -34,7 +34,6 @@ background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
             border-radius: 10px;
             margin: 5px;
             color: white;
-          
         }
         .btn-add{
             padding: 5px auto;
@@ -57,12 +56,18 @@ background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
     </div>
     
     <script>
-        const todolist=[]
+        let todolist=[];
+        const listfromlocalstorage=localStorage.getItem("todolist");
+        if(listfromlocalstorage){
+            todolist=JSON.parse(listfromlocalstorage);
+            randortodolist();
+        }
        
 
         function Add(){
             const inputElenment=document.getElementById(`input-todo`);
-            todolist.push(inputElenment.value)
+             todolist.push(inputElenment.value)
+             localStorage.setItem("todolist",JSON.stringify(todolist));
             inputElenment.value= ""
 
             randortodolist();
@@ -75,8 +80,10 @@ background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
            for(const todoitem of todolist)
            {
             listcontainer.innerHTML += `<div class="todo-item">
+                <input type="checkbox"/>
                 
                 ${todoitem }
+                
                 </div>`
         
 
