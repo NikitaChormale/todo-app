@@ -4,24 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo App</title>
+    <style>
+        .action-container{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 10px;
+        }
+        .list-container{
+            height: 300px;
+            background-color: rgb(233, 204, 151);
+            width: 300px;
+            display: block;
+            margin: 20px auto;padding: 10px;
+            border-radius: 5px;
+        overflow-y: scroll;
+        overflow-x: scroll;
+
+        }
+        .todo-item{
+            background-color: rgb(238, 167, 35);
+            padding: 5px 20px;
+            border-radius: 10px;
+            margin: 5px;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <div class="list-container">
-
+    <div class="list-container" id="list-container">
+        <div class="todo-item">Task Item</div>
     </div>
-    <button onclick="add()">add</button>
-    <button onclick="show()">show</button>
+
+   
+    <div class="action-container">
+        <input type="text" id="input-todo"/>
+    <button onclick="Add()">add</button>
+    </div>
     
     <script>
         const todolist=[]
-        function add(){
-            const randomNumber=Math.random()*todolist.push(randomNumber)
+       
 
+        function Add(){
+            const inputElenment=document.getElementById(`input-todo`);
+            todolist.push(inputElenment.value)
+            inputElenment.value= ""
+
+            randortodolist();
 
         }
-        function show(){
-            console.log(todolist);
+        function randortodolist(){
+           const listcontainer=document.getElementById(`list-container`);
+           listcontainer.innerHTML=" "
+
+           for(const todoitem of todolist)
+           {
+            listcontainer.innerHTML += `<div class="todo-item">
+                
+                ${todoitem }
+                </div>`
+        
+
+            }
         }
+        
         </script>
         </body>
 </html>
