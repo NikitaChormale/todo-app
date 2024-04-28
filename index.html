@@ -16,10 +16,11 @@
             background-color: rgb(233, 204, 151);
             width: 300px;
             display: block;
-            margin: 20px auto;padding: 10px;
+            margin: 20px auto;
+            padding: 10px;
             border-radius: 5px;
         overflow-y: scroll;
-        overflow-x: scroll;
+       
 
         }
         .todo-item{
@@ -28,6 +29,13 @@
             border-radius: 10px;
             margin: 5px;
             color: white;
+        }
+        .btn-add{
+            padding: 5px auto;
+            font-size: 15px;
+            margin-left: 5px;
+            padding: 5px;
+            
         }
     </style>
 </head>
@@ -39,7 +47,7 @@
    
     <div class="action-container">
         <input type="text" id="input-todo"/>
-    <button onclick="Add()">add</button>
+    <button class="btn-add" onclick="Add()">Add</button>
     </div>
     
     <script>
